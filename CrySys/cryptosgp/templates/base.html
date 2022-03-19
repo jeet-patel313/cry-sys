@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <title>CrySys</title>
+    
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css'%}">
+    
+  </head>
+  <body style="background-color: #061322;">
+    
+  
+    <nav class="sticky-top navbar navbar-dark navbar-expand-lg" style="background-color: #061322;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}"><h4 style="font-family: 'Times New Roman', serif; color: #FFF7D6;">CrySys</h4></a>
+          <!--<a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo-back.png' %}" alt="" width="80"></a>-->
+          <!--<a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo-back.png' %}"></a>-->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><h5 style="font-family: 'Times New Roman', serif; color: #FFF7D6;">Lookup Prices</h5></a>
+              </li> &nbsp;
+              <!--<li class="nav-item">
+                <a class="nav-link" href="#news"><h5 style="font-family: 'Times New Roman', serif;">News</h5></a>
+              </li> &nbsp; -->
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blogs' %}"><h5 style="font-family: 'Times New Roman', serif; color: #FFF7D6;">Blogs</h5></a>
+              </li> &nbsp;
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}"><h5 style="font-family: 'Times New Roman', serif; color: #FFF7D6;">About Us</h5></a>
+              </li>
+            </ul>
+
+              {% if request.user.is_authenticated %}   
+               
+                <a href="{% url 'register' %}" style="text-decoration: none;"><button type="button" class="d-flex btn btn-outline-info" style="border-radius: 10px;"><h5 style="font-family: 'Times New Roman', serif; color: #FFF7D6;">Hello, {{request.user}}</h5></button></a> &nbsp; &nbsp;
+                <a href="{% url 'logout' %}" style="text-decoration: none;"><button type="button" class="d-flex btn btn-outline-info" style="border-radius: 10px;"><h5 style="font-family: 'Times New Roman', serif; color: #FFF7D6;">Logout</h5></button></a>
+                    
+              {% else %}
+
+                <a href="{% url 'register' %}" style="text-decoration: none;"><button type="button" class="d-flex btn btn-outline-info" style="border-radius: 10px;"><h5 style="font-family: 'Times New Roman', serif; color: #FFF7D6;">SignUp</h5></button></a> &nbsp; &nbsp;
+                <a href="{% url 'login' %}" style="text-decoration: none;"><button type="button" class="d-flex btn btn-outline-info" style="border-radius: 10px;"><h5 style="font-family: 'Times New Roman', serif; color: #FFF7D6;">Login</h5></button></a>
+            
+              {% endif %}
+
+          </div>
+        </div>
+  </nav> <p></p>
+
+    <!--<form class="container d-flex col-lg-6 col-sm-10 col-xs-12" >
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+    </form>-->
+    
+    
+    {% block content %}
+    {% endblock %}
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+
+
+<!--
+  to do
+  1. customize navbar :- in mobile form and in tablet view
+      done 2. add proper footer tags and info
+      done 3. add proper contrasting colors for navbar and the web app's background
+      done 4. don't add footer to login and register feature (done)
+      done 5. use colors of https://openbase.com/js/cryptocompare/documentation for the whole project
+      done 6. create a page for search box and don't include it on login and register functionality (done)
+  partially done 7. customize the login and register page and make it start
+  8. add the account page where the users can add, update, delete the crypto currency 
+	in add : name of crypto ; amount (buy or sell) ; what you want to get notified for (buy or sell at the amount)
+	in delete : delete button besides the entry we added which will delete the entire row from the table
+  9. add a navbar after login which has my_data ; my_account ; logout 
+	my_data will have all the data which he has added or wants to add or wants to delete
+	my_account will have all the data of the account as follows:	
+		first name ; last name ; username(not changeable) ; email address(not changeable) ; change password 
+	logout will be used to exit from the session and delete the current usersession
+  10. load the logo of cry-sys in navbar
+
+
+-->

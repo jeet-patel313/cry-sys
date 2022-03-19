@@ -1,0 +1,13 @@
+<div class="hero" style="text-align: center;">
+    <form method="POST" action="{% url 'prices' %}">
+      {% csrf_token %}
+      <input name="quote" class="search col-lg-6 col-sm-10 col-xs-8"  style="text-align: center; background-color: #E5E4E2; height: 46px; border-radius: 25px; border: 0.2px solid; border-color: #CDCDCD;" onMouseOver="box-shadow: 0 0 5px rgb(247, 244, 244);" placeholder="Search your query">
+      <button class="btn btn-outline-info" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</div>
+<!--
+<form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'prices' %}">
+  {% csrf_token %}
+  <input class="form-control mr-sm-2" type="search" placeholder="Lookup Crypto" aria-label="Search" name="quote">
+  <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Lookup</button>
+</form>-->

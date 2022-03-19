@@ -1,0 +1,12 @@
+.hero {
+    text-align: center;
+  }
+.search{
+    height: 46px;
+    border-radius: 25px;
+    border: 0.2px solid;
+    border-color: #CDCDCD;
+  }
+.search:hover{
+    box-shadow: 0 0 5px rgb(247, 244, 244);
+  }  
